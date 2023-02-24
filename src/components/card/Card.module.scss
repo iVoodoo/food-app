@@ -1,0 +1,73 @@
+@import '@styles/variables';
+
+.card {
+	flex-grow: 1;
+  padding: 8px 12px;
+	display: flex;
+	flex-direction: column;
+  width: 155px;
+
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+	
+	&:hover {
+		transform: 1.2;
+  	cursor: pointer;
+	}
+
+	.cardImage {
+		display: block;
+		margin: 3px auto;
+		width: 100%;
+	}
+
+	.cardTitle {
+		margin-top: 5px;
+		margin-bottom: 0;
+
+		font-family: $avenir-font;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 25px;
+		letter-spacing: -0.03em;
+		color: #0d0d0d;
+	}
+
+	.cardIngredients {
+		flex-grow: 1;
+		margin-top: 4px;
+
+		font-family: $avenir-font;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 16px;
+		letter-spacing: -0.03em;
+		overflow: hidden;
+  	text-overflow: ellipsis;
+		color: $grey-text;
+		opacity: 0.5;
+
+		& a {
+			text-decoration: none;
+			color: $grey-text;
+			opacity: 0.5;
+		}
+	}
+
+	.cardContent {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+
+		.kcal {
+			font-family: $dm-sans-font;
+			color:$red;
+			font-weight: 700;
+			font-size: 14px;
+		}
+	}
+
+}
+
+

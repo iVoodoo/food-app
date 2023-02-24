@@ -1,0 +1,64 @@
+@import '@styles/variables';
+
+.wrapper {
+	height: 100%;
+	min-width: 375px;
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+
+	> img  {
+		position: absolute;
+		right: 0;
+		top:0;
+		z-index: -1;
+
+		opacity: 0.1;
+	}
+
+	.header {
+		margin: 24px 32px 0px 32px;
+	
+		.search {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;	
+
+			.searchIcon {
+				margin-left: 8px;
+				width: 36px;
+				height: 36px;
+				position: relative;
+
+				cursor: pointer;
+				background: #FF0000;
+				border-radius: 7px;
+
+				img {
+					content: '';
+					position: absolute;
+					margin: auto;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+				}
+			}
+		}
+
+		.multiDropdown {
+			margin-top: 16px;
+			margin-left: auto;
+			margin-right: 0;
+			width: 50%;
+		}
+	}
+
+	.cardWrapper {
+		margin: 20px 24px;
+		display: flex;
+    flex-wrap: wrap;
+		gap: 33px 17px;
+	}
+}

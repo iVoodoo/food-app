@@ -1,0 +1,27 @@
+@import '@styles/variables';
+
+.input {
+  width: 100%;
+  background: $light-red-gradient;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  padding-left: 10px;
+
+  font-family: $avenir-font;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+
+  color: $grey-text;
+}
+
+.input:focus {
+  color: #000000;
+  background: $red-gradient;
+}
+.input_disabled {
+  background: $grey-back;
+}
