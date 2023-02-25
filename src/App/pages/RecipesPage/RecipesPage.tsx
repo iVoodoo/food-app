@@ -6,6 +6,7 @@ import Card from "@components/card";
 import Input from "@components/input";
 import Multidropdown from "@components/multidropdown";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 import styles from "./RecipesPage.module.scss";
 
@@ -63,13 +64,19 @@ const RecipesPage = () => {
       </div>
       <section className={styles.cardWrapper}>
         {recipes.map((item) => (
-          <Card
+          <Link
+            style={{ textDecoration: "none", display: "flex", flexGrow: "1" }}
             key={item.id}
-            image={item.image}
-            title={item.title}
-            kcal={item.kcal}
-            ingredients={item.ingredients}
-          />
+            to={`/recipe/${item.id}`}
+          >
+            <Card
+              key={item.id}
+              image={item.image}
+              title={item.title}
+              kcal={item.kcal}
+              ingredients={item.ingredients}
+            />
+          </Link>
         ))}
       </section>
     </div>
