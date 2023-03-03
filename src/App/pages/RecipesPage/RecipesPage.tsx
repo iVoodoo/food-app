@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 
 import background from "@assets/images/background.svg";
-import searchIcon from "@assets/images/search-icon.svg";
 import Card from "@components/card";
-import Input from "@components/input";
-import Multidropdown from "@components/multidropdown";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 import styles from "./RecipesPage.module.scss";
+import Search from "./search";
 
 const URL =
   "https://api.spoonacular.com/recipes/complexSearch?apiKey=5c1b643c5d3844d282883824819a05f2&addRecipeNutrition=true";
@@ -39,7 +37,7 @@ const RecipesPage = () => {
             title: item.title,
             image: item.image,
             ingredients: ingredientsData,
-            kcal: item.nutrition.nutrients[0].amount,
+            kcal: item.nutrition.nutrients[0].amount
           };
         })
       );
@@ -50,20 +48,12 @@ const RecipesPage = () => {
 
   return (
     <div className={styles.wrapper}>
-      <img src={background} alt="background-image" />
+      <img src={background} alt="background-food" />
       <div className={styles.header}>
-        <div className={styles.search}>
-          <Input onChange={() => {}} />
-          <div className={styles.searchIcon}>
-            <img src={searchIcon} alt="search-icon" />
-          </div>
-        </div>
-        <div className={styles.multiDropdown}>
-          <Multidropdown />
-        </div>
+        <Search />
       </div>
       <section className={styles.cardWrapper}>
-        {recipes.map((item) => (
+        {recipes.map(item => (
           <Link
             style={{ textDecoration: "none", display: "flex", flexGrow: "1" }}
             key={item.id}

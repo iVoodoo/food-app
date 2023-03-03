@@ -1,17 +1,15 @@
-@import url('https://fonts.cdnfonts.com/css/avenir-lt-pro');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap');
+@import "https://fonts.cdnfonts.com/css/avenir-lt-pro";
+@import "https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap";
 
-$red: #FF0000;
-$red-light: rgba(255, 0, 0, 0.5);
-$grey-back: #D9D9D9;
-$grey-text: #3B3B3B;
-$white:#FFF7F7;
-$white-red:#FFE5E5;
-
-$red-gradient: linear-gradient(98.81deg, #FFBCBC -0.82%, #FFA1A1 101.53%);
-$light-red-gradient:  linear-gradient(98.81deg, #FFF0F0 -0.82%, #FFDFDF 101.53%);
-$grey-gradient: linear-gradient(98.81deg, #F2F2F2 -0.82%, #D9D9D9 101.53%);
-
-
-$avenir-font: 'Avenir LT Pro', sans-serif;
-$dm-sans-font: 'DM Sans', sans-serif;
+$red: #f00;
+$red-light: rgb(255 0 0 / 50%);
+$grey-back: #d9d9d9;
+$grey-text: #3b3b3b;
+$black: #0d0d0d;
+$white: #fff7f7;
+$white-red: #ffe5e5;
+$red-gradient: linear-gradient(98.81deg, #ffbcbc -0.82%, #ffa1a1 101.53%);
+$light-red-gradient: linear-gradient(98.81deg, #fff0f0 -0.82%, #ffdfdf 101.53%);
+$grey-gradient: linear-gradient(98.81deg, #f2f2f2 -0.82%, #d9d9d9 101.53%);
+$avenir-font: "Avenir LT Pro", sans-serif;
+$dm-sans-font: "DM Sans", sans-serif;

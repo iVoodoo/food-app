@@ -5,7 +5,6 @@ import RecipesPage from "./pages/RecipesPage";
 
 function App() {
   return (
-    <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<RecipesPage />} />
@@ -14,7 +13,6 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </div>
   );
 }
 

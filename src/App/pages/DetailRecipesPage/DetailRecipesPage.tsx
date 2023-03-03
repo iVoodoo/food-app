@@ -38,7 +38,7 @@ const DetailRecipesPage = () => {
         image: response.image,
         instructions: response.instructions,
         times: response.readyInMinutes,
-        likes: response.aggregateLikes,
+        likes: response.aggregateLikes
       });
     };
 
@@ -50,7 +50,7 @@ const DetailRecipesPage = () => {
       {!isLoading && (
         <>
           <div className={styles.image}>
-            <img src={recipe?.image} alt="image of food" />
+            <img src={recipe?.image} alt="food" />
             <span
               className={styles.backArrow}
               onClick={() => {

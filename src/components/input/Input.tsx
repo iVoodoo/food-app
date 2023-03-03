@@ -22,11 +22,11 @@ const Input: React.FC<InputProps> = ({ value, onChange, ...props }) => {
       placeholder="Search"
       type="text"
       className={cn(props.className, styles.input, {
-        [styles.input_disabled]: props.disabled,
+        [styles.input_disabled]: props.disabled
       })}
       value={value}
-      onChange={(e) => onChange(e.target.value)}
-    ></input>
+      onChange={e => onChange(e.target.value)}
+    />
   );
 };
 

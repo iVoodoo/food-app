@@ -1,14 +1,19 @@
 {
 	"extends": [
-		"react-app",
-		"plugin:prettier/recommended"
+		"eslint:recommended",
+    "prettier",
+    "prettier/react",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
 	],
 	"plugins": [
-		"prettier"
+		"@typescript-eslint", "import", "prettier", "react"
 	],
 	"rules": {
 		"no-console": "error",
-		"prettier/prettier": "error",
+		"prettier/prettier": 0,
 		"import/order": [
 			"error",
 			{
@@ -34,5 +39,8 @@
 				}
 			}
 		]
-	}
+	},
+	"settings": {
+    "import/resolver": "typescript"
+  }
 }

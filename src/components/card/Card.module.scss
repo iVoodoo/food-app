@@ -1,73 +1,72 @@
-@import '@styles/variables';
+@import "@styles/variables";
 
 .card {
-	flex-grow: 1;
-  padding: 8px 12px;
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
   width: 155px;
+  padding: 8px 12px;
 
-  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.12);
   border-radius: 10px;
-	
-	&:hover {
-		transform: 1.2;
-  	cursor: pointer;
-	}
+  box-shadow: 0 1px 8px rgb(0 0 0 / 12%);
 
-	.cardImage {
-		display: block;
-		margin: 3px auto;
-		width: 100%;
-	}
+  &:hover {
+    cursor: pointer;
+    transform: 1.2;
+  }
 
-	.cardTitle {
-		margin-top: 5px;
-		margin-bottom: 0;
+  .cardImage {
+    display: block;
+    width: 100%;
+    margin: 3px auto;
+  }
 
-		font-family: $avenir-font;
-		font-weight: 500;
-		font-size: 18px;
-		line-height: 25px;
-		letter-spacing: -0.03em;
-		color: #0d0d0d;
-	}
+  .cardTitle {
+    margin-top: 5px;
+    margin-bottom: 0;
 
-	.cardIngredients {
-		flex-grow: 1;
-		margin-top: 4px;
+    font-family: $avenir-font;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25px;
+    color: $black;
+    letter-spacing: -0.03em;
+  }
 
-		font-family: $avenir-font;
-		font-weight: 400;
-		font-size: 12px;
-		line-height: 16px;
-		letter-spacing: -0.03em;
-		overflow: hidden;
-  	text-overflow: ellipsis;
-		color: $grey-text;
-		opacity: 0.5;
+  .cardIngredients {
+    overflow: hidden;
+    flex-grow: 1;
 
-		& a {
-			text-decoration: none;
-			color: $grey-text;
-			opacity: 0.5;
-		}
-	}
+    margin-top: 4px;
 
-	.cardContent {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		justify-content: space-between;
+    font-family: $avenir-font;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: $grey-text;
+    text-overflow: ellipsis;
+    letter-spacing: -0.03em;
 
-		.kcal {
-			font-family: $dm-sans-font;
-			color:$red;
-			font-weight: 700;
-			font-size: 14px;
-		}
-	}
+    opacity: 0.5;
 
+    & a {
+      color: $grey-text;
+      text-decoration: none;
+      opacity: 0.5;
+    }
+  }
+
+  .cardContent {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    .kcal {
+      font-family: $dm-sans-font;
+      font-size: 14px;
+      font-weight: 700;
+      color: $red;
+    }
+  }
 }
-
-
