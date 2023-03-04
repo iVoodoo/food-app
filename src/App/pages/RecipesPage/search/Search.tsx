@@ -8,7 +8,7 @@ import { TypeOption } from "@components/multidropdown/MultiDropdown";
 import styles from "./Search.module.scss";
 
 const Search = () => {
-   const [value, setValue] = useState<TypeOption[]>([])
+  const [value, setValue] = useState<TypeOption[]>([]);
 
   return (
     <>
@@ -19,7 +19,10 @@ const Search = () => {
         </div>
       </div>
       <div className={styles["multi-dropdown-wrapper"]}>
-        <Multidropdown value={value} onChange = {(item: TypeOption[]) => setValue(item)}/>
+        <Multidropdown
+          value={value}
+          onChange={(item: TypeOption[]) => setValue(item)}
+        />
       </div>
     </>
   );

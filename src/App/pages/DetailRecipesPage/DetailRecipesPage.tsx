@@ -1,53 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import backArrow from "@assets/images/backArrow.svg";
 import likeImg from "@assets/images/like.svg";
 import timerImg from "@assets/images/timer.svg";
-import axios from "axios";
+import Loader from "@components/loader";
+import SingleRecipeStore from "@store/SingleRecipeStore";
+import { observer } from "mobx-react-lite";
 import { useNavigate, useParams } from "react-router-dom";
 
 import styles from "./DetailRecipesPage.module.scss";
 
-type TypeRecipe = {
-  id: number;
-  title: string;
-  image: string;
-  instructions: string;
-  times: number;
-  likes: number;
-};
-
 const DetailRecipesPage = () => {
   const { id } = useParams();
 
-  const URL = `https://api.spoonacular.com/recipes/${id}/information?apiKey=5c1b643c5d3844d282883824819a05f2`;
-
   const navigate = useNavigate();
 
-  const [isLoading, setLoading] = useState(true);
-  const [recipe, setRecipe] = useState<TypeRecipe>();
-
   useEffect(() => {
-    const getRecipe = async () => {
-      const response = (await axios.get(URL)).data;
-      setLoading(false);
-
-      setRecipe({
-        id: response.id,
-        title: response.title,
-        image: response.image,
-        instructions: response.instructions,
-        times: response.readyInMinutes,
-        likes: response.aggregateLikes
-      });
-    };
-
-    getRecipe();
+    SingleRecipeStore.getSingleRecipe(id);
   }, []);
 
+  const recipe = SingleRecipeStore.singleRecipe;
   return (
     <div className={styles.wrapper}>
-      {!isLoading && (
+      {recipe ? (
         <>
           <div className={styles.image}>
             <img src={recipe?.image} alt="food" />
@@ -84,9 +59,11 @@ const DetailRecipesPage = () => {
             </div>
           </div>
         </>
+      ) : (
+        <Loader />
       )}
     </div>
   );
 };
 
-export default DetailRecipesPage;
+export default observer(DetailRecipesPage);
