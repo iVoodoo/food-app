@@ -1,0 +1,30 @@
+@import "@styles/variables";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 375px;
+  height: 100%;
+
+  > img {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+
+    opacity: 0.1;
+  }
+
+  .header {
+    margin: 24px 32px 0;
+  }
+
+  .cardWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 33px 17px;
+    margin: 20px 24px;
+  }
+}

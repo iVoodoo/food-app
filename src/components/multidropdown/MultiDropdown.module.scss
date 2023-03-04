@@ -1,0 +1,56 @@
+@import "@styles/variables";
+
+.multi-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &__button {
+    margin-bottom: 3px;
+    padding: 10px 0;
+    padding-left: 10px;
+
+    font-family: $avenir-font;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: left;
+
+    background: $light-red-gradient;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+
+    &_disabled {
+      color: rgba($grey-text, 0.5);
+      background: $grey-gradient;
+    }
+  }
+
+  &__items {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    border-radius: 7px;
+    overflow: hidden;
+
+    .item {
+      display: block;
+      width: 100%;
+      padding: 10px 0;
+      padding-left: 10px;
+
+      font-family: $avenir-font;
+      font-size: 12px;
+      font-weight: 400;
+      color: $black;
+      text-align: left;
+      border: none;
+
+      background: $white;
+
+      &_selected {
+        background-color: $white-red;
+      }
+    }
+  }
+}

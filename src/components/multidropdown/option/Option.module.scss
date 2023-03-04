@@ -1,0 +1,21 @@
+@import "@styles/variables";
+
+.item {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  padding-left: 10px;
+
+  font-family: $avenir-font;
+  font-size: 12px;
+  font-weight: 400;
+  color: $black;
+  text-align: left;
+  border: none;
+  outline: none;
+  background: $white;
+
+  &_selected {
+    background-color: $white-red;
+  }
+}
