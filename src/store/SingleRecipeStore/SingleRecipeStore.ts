@@ -1,7 +1,7 @@
 import { URL, KEY } from "@config/apiUrls";
 import { SingleRecipe } from "@store/models/singleRecipe";
 import axios from "axios";
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 
 class SingleRecipeStore {
   private _singleRecipe: SingleRecipe = null;
@@ -22,14 +22,16 @@ class SingleRecipeStore {
     this.clearSingleRecipe();
     const response = (await axios.get(`${URL.getRecipeById(id)}?apiKey=${KEY}`))
       .data;
-    this._singleRecipe = {
-      id: response.id,
-      title: response.title,
-      image: response.image,
-      instructions: response.instructions,
-      times: response.readyInMinutes,
-      likes: response.aggregateLikes
-    };
+    runInAction(() => {
+      this._singleRecipe = {
+        id: response.id,
+        title: response.title,
+        image: response.image,
+        instructions: response.instructions,
+        times: response.readyInMinutes,
+        likes: response.aggregateLikes
+      };
+    });
   }
 }
 

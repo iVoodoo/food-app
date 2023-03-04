@@ -36,8 +36,13 @@
 
   .cardIngredients {
     overflow: hidden;
-    flex-grow: 1;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    max-height: 32px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 
+    flex-grow: 1;
     margin-top: 4px;
 
     font-family: $avenir-font;
@@ -58,6 +63,7 @@
   }
 
   .cardContent {
+    // min-height: 32px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;

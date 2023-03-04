@@ -5,6 +5,7 @@ import { makeAutoObservable } from "mobx";
 
 class AllRecipesStore {
   private _allRecipesList: AllRecipes[] = [];
+  private _allRecipesListLength: number = 10;
 
   constructor() {
     makeAutoObservable(this);
@@ -18,9 +19,14 @@ class AllRecipesStore {
     this._allRecipesList = [];
   }
 
+  moreRecipes() {
+    this._allRecipesListLength += 10;
+    this.getAllRecipesList();
+  }
+
   async getAllRecipesList(): Promise<void> {
     const response = await axios.get(
-      `${URL.getAllRecipes}?apiKey=${KEY}&addRecipeNutrition=true`
+      `${URL.getAllRecipes}?apiKey=${KEY}&addRecipeNutrition=true&number=${this._allRecipesListLength}`
     );
     this.clearAllRecipesList();
     response.data.results.map((item: any) => {
