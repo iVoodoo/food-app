@@ -16,13 +16,13 @@
   border: none;
   border-radius: 7px;
   outline: none;
-}
 
-.input:focus {
-  color: $black;
-  background: $red-gradient;
-}
+  &_disabled {
+    background: $grey-back;
+  }
 
-.input_disabled {
-  background: $grey-back;
+  &:focus {
+    color: $black;
+    background: $red-gradient;
+  }
 }

@@ -6,6 +6,9 @@
 			"@config/*": [
 				"src/config/*"
 			],
+			"@store/*": [
+				"src/store/*"
+			],
 			"@styles/*": [
 				"src/styles/*"
 			],

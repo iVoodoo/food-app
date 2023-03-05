@@ -46,7 +46,6 @@ const MultiDropdown: React.FC<MultiDropdownProps> = ({
   const [isShow, setIsShow] = useState(false);
   const handleShow = () => setIsShow(!isShow);
 
-  debugger;
   function selectOption(option: TypeOption) {
     if (value.find(o => o.key === option.key)) {
       onChange(value.filter(el => el.key !== option.key));
