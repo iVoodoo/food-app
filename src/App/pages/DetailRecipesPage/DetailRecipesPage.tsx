@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import backArrow from "@assets/images/backArrow.svg";
 import likeImg from "@assets/images/like.svg";
@@ -12,12 +12,11 @@ import styles from "./DetailRecipesPage.module.scss";
 
 const DetailRecipesPage = () => {
   const { id } = useParams();
-
   const navigate = useNavigate();
 
   useEffect(() => {
     SingleRecipeStore.getSingleRecipe(id);
-  }, []);
+  }, [id]);
 
   const recipe = SingleRecipeStore.singleRecipe;
   return (
@@ -29,7 +28,7 @@ const DetailRecipesPage = () => {
             <span
               className={styles.backArrow}
               onClick={() => {
-                navigate("/");
+                navigate(-1);
               }}
             >
               <img src={backArrow} alt="backArrow-icon" />

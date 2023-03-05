@@ -1,5 +1,6 @@
 import { URL, KEY } from "@config/apiUrls";
 import { AllRecipes } from "@store/models/allRecipes";
+import rootStore from "@store/RootStore/instance";
 import axios from "axios";
 import { makeAutoObservable } from "mobx";
 
@@ -26,7 +27,7 @@ class AllRecipesStore {
 
   async getAllRecipesList(): Promise<void> {
     const response = await axios.get(
-      `${URL.getAllRecipes}?apiKey=${KEY}&addRecipeNutrition=true&number=${this._allRecipesListLength}`
+      `${URL.getAllRecipes}?apiKey=${KEY}&addRecipeNutrition=true&number=${this._allRecipesListLength}&query=${rootStore.query.getSearch}`
     );
     this.clearAllRecipesList();
     response.data.results.map((item: any) => {

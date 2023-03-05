@@ -25,10 +25,10 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <div className={styles.card} onClick={onClick}>
-      <img className={styles.cardImage} src={image} alt="food preciew"></img>
-      <h1 className={styles.cardTitle}>{title}</h1>
-      <p className={styles.cardIngredients}>{ingredients}</p>
-      <div className={styles.cardContent}>
+      <img className={styles.card__image} src={image} alt="food preview"></img>
+      <h1 className={styles.card__title}>{title}</h1>
+      <p className={styles.card__ingredients}>{ingredients}</p>
+      <div className={styles.card__content}>
         <div className={styles.kcal}>{kcal} kcal</div>
         <img className={styles.button} src={plusButton} alt="plus"></img>
       </div>

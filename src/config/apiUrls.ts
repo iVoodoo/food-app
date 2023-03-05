@@ -12,4 +12,4 @@ const KEYS = {
   KEY_5: "d55d4e46112a4aac9ce100aab9b1be29"
 };
 
-export const KEY = KEYS.KEY_5;
+export const KEY = KEYS.KEY_1;
