@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
+import { MultiDropDownOptions } from "@data/MultiDropDownOptions";
+import allRecipesStore from "@store/AllRecipesStore/AllRecipesStore";
+import rootStore from "@store/RootStore/instance";
 import cn from "clsx";
+import { observer } from "mobx-react-lite";
 
 import styles from "./MultiDropdown.module.scss";
 import Option from "./option";
@@ -19,7 +23,7 @@ export type MultiDropdownProps = {
   /** Текущие выбранные значения поля, может быть пустым */
   value?: TypeOption[];
   /** Callback, вызываемый при выборе варианта */
-  onChange?: (value: TypeOption[]) => void;
+  onChange?: (value: TypeOption) => void;
   /** Заблокирован ли дропдаун */
   disabled?: boolean;
   /** Преобразовать выбранные значения в строку. Отображается в дропдауне в качестве выбранного значения */
@@ -27,13 +31,9 @@ export type MultiDropdownProps = {
 };
 
 const MultiDropdown: React.FC<MultiDropdownProps> = ({
-  options = [
-    { key: "msk", value: "Москва" },
-    { key: "spb", value: "Санкт-Петербург" },
-    { key: "ekb", value: "Екатеринбург" }
-  ],
+  options = MultiDropDownOptions,
   value = [],
-  onChange = () => {},
+  onChange = (value: TypeOption) => {},
   disabled,
   pluralizeOptions = value => {
     if (value.length !== 0) {
@@ -45,14 +45,6 @@ const MultiDropdown: React.FC<MultiDropdownProps> = ({
 }) => {
   const [isShow, setIsShow] = useState(false);
   const handleShow = () => setIsShow(!isShow);
-
-  function selectOption(option: TypeOption) {
-    if (value.find(o => o.key === option.key)) {
-      onChange(value.filter(el => el.key !== option.key));
-    } else {
-      onChange([...value, option]);
-    }
-  }
 
   return (
     <div className={styles["multi-dropdown"]}>
@@ -76,7 +68,9 @@ const MultiDropdown: React.FC<MultiDropdownProps> = ({
                   value.findIndex(element => element.key === item.key) !== -1
                 }
                 onClick={() => {
-                  selectOption(item);
+                  onChange(item);
+                  rootStore.query.setType(item);
+                  allRecipesStore.getAllRecipesList();
                 }}
               />
             );
@@ -86,4 +80,4 @@ const MultiDropdown: React.FC<MultiDropdownProps> = ({
   );
 };
 
-export default MultiDropdown;
+export default observer(MultiDropdown);

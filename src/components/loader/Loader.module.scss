@@ -1,25 +1,32 @@
-.l-size {
-  border: 6px solid #ff0000;
-  width: 50px;
-  height: 50px;
-}
-.m-size {
-  border: 4.5px solid #ff0000;
-  width: 40px;
-  height: 40px;
-}
-.s-size {
-  border: 3px solid #ff0000;
-  width: 20px;
-  height: 20px;
-}
-
 .loader {
   border-radius: 50px;
+  display: block;
   margin: 50vh auto;
   animation: 1.5s linear 0s infinite loaderAnimation;
+  border-style: solid;
+  border-color: #ff0000;
   border-right-color: transparent;
   transform: rotate(35deg);
+
+  &_size {
+    &_l {
+      border-width: 6px;
+      width: 50px;
+      height: 50px;
+    }
+
+    &_m {
+      border-width: 4.5px;
+      width: 40px;
+      height: 40px;
+    }
+
+    &_s {
+      border-width: 3px;
+      width: 20px;
+      height: 20px;
+    }
+  }
 }
 
 @keyframes loaderAnimation {

@@ -1,10 +1,11 @@
 import { URL, KEY } from "@config/apiUrls";
 import { AllRecipes } from "@store/models/allRecipes";
 import rootStore from "@store/RootStore/instance";
+import { ILocalStore } from "@utils/useLocalStore";
 import axios from "axios";
 import { makeAutoObservable } from "mobx";
 
-class AllRecipesStore {
+class AllRecipesStore implements ILocalStore {
   private _allRecipesList: AllRecipes[] = [];
   private _allRecipesListLength: number = 10;
 
@@ -26,11 +27,17 @@ class AllRecipesStore {
   }
 
   async getAllRecipesList(): Promise<void> {
-    const response = await axios.get(
-      `${URL.getAllRecipes}?apiKey=${KEY}&addRecipeNutrition=true&number=${this._allRecipesListLength}&query=${rootStore.query.getSearch}`
-    );
+    const response = await axios.get(URL.getAllRecipes, {
+      params: {
+        apiKey: KEY,
+        addRecipeNutrition: true,
+        number: this._allRecipesListLength,
+        query: rootStore.query.getSearch,
+        type: rootStore.query.getTypeForRequest
+      }
+    });
     this.clearAllRecipesList();
-    response.data.results.map((item: any) => {
+    response.data.results.forEach((item: any) => {
       let ingredientsData = item.nutrition.ingredients
         .map((ingredient: any) => ingredient.name)
         .join(" + ");
@@ -43,6 +50,12 @@ class AllRecipesStore {
       });
     });
   }
+
+  destroy(): void {
+    this._allRecipesList = [];
+  }
 }
 
-export default new AllRecipesStore();
+const allRecipesStore = new AllRecipesStore();
+
+export default allRecipesStore;

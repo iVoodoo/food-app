@@ -4,7 +4,8 @@ import backArrow from "@assets/images/backArrow.svg";
 import likeImg from "@assets/images/like.svg";
 import timerImg from "@assets/images/timer.svg";
 import Loader from "@components/loader";
-import SingleRecipeStore from "@store/SingleRecipeStore";
+import singleRecipeStore from "@store/SingleRecipeStore";
+import { useLocalStore } from "@utils/useLocalStore";
 import { observer } from "mobx-react-lite";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -13,12 +14,13 @@ import styles from "./DetailRecipesPage.module.scss";
 const DetailRecipesPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-
+  useLocalStore(() => singleRecipeStore);
   useEffect(() => {
-    SingleRecipeStore.getSingleRecipe(id);
+    singleRecipeStore.getSingleRecipe(id);
   }, [id]);
 
-  const recipe = SingleRecipeStore.singleRecipe;
+  const recipe = singleRecipeStore.singleRecipe;
+
   return (
     <div className={styles.wrapper}>
       {recipe ? (

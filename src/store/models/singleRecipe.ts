@@ -5,4 +5,4 @@ export type SingleRecipe = {
   instructions: string;
   times: number;
   likes: number;
-} | null;
+};

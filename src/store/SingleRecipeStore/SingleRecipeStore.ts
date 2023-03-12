@@ -1,17 +1,18 @@
 import { URL, KEY } from "@config/apiUrls";
 import { SingleRecipe } from "@store/models/singleRecipe";
+import { ILocalStore } from "@utils/useLocalStore";
 import axios from "axios";
 import { makeAutoObservable, runInAction } from "mobx";
 
-class SingleRecipeStore {
-  private _singleRecipe: SingleRecipe = null;
+class SingleRecipeStore implements ILocalStore {
+  private _singleRecipe: SingleRecipe | null = null;
 
   constructor() {
     makeAutoObservable(this);
   }
 
   get singleRecipe(): SingleRecipe {
-    return this._singleRecipe;
+    return this._singleRecipe!;
   }
 
   clearSingleRecipe() {
@@ -20,8 +21,13 @@ class SingleRecipeStore {
 
   async getSingleRecipe(id: string | undefined): Promise<void> {
     this.clearSingleRecipe();
-    const response = (await axios.get(`${URL.getRecipeById(id)}?apiKey=${KEY}`))
-      .data;
+    const response = (
+      await axios.get(URL.getRecipeById(id), {
+        params: {
+          apiKey: KEY
+        }
+      })
+    ).data;
     runInAction(() => {
       this._singleRecipe = {
         id: response.id,
@@ -33,6 +39,11 @@ class SingleRecipeStore {
       };
     });
   }
-}
 
-export default new SingleRecipeStore();
+  destroy(): void {
+    this._singleRecipe = null;
+  }
+}
+const singleRecipeStore = new SingleRecipeStore();
+
+export default singleRecipeStore;
