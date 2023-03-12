@@ -1,10 +1,12 @@
+@import "styles/variables";
+
 .loader {
   border-radius: 50px;
   display: block;
   margin: 50vh auto;
   animation: 1.5s linear 0s infinite loaderAnimation;
   border-style: solid;
-  border-color: #ff0000;
+  border-color: $red;
   border-right-color: transparent;
   transform: rotate(35deg);
 

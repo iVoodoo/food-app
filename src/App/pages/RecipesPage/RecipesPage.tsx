@@ -1,20 +1,18 @@
 import { useEffect } from "react";
 
-import background from "@assets/images/background.svg";
-import Card from "@components/card";
-import Loader from "@components/loader";
-import allRecipesStore from "@store/AllRecipesStore";
-import { useLocalStore } from "@utils/useLocalStore";
+import background from "assets/images/background.svg";
+import Card from "components/card";
+import Loader from "components/loader";
 import { observer } from "mobx-react-lite";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import allRecipesStore from "store/AllRecipesStore";
+import { useLocalStore } from "utils/useLocalStore";
 
 import styles from "./RecipesPage.module.scss";
 import Search from "./search";
 
 const RecipesPage = () => {
-  const [, setSearchParams] = useSearchParams("");
-
   useLocalStore(() => allRecipesStore);
 
   useEffect(() => {

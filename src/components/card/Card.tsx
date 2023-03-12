@@ -1,6 +1,6 @@
 import React from "react";
 
-import plusButton from "@assets/images/plusButton.svg";
+import plusButton from "assets/images/plusButton.svg";
 
 import styles from "./Card.module.scss";
 

@@ -1,9 +1,9 @@
-import { URL, KEY } from "@config/apiUrls";
-import { AllRecipes } from "@store/models/allRecipes";
-import rootStore from "@store/RootStore/instance";
-import { ILocalStore } from "@utils/useLocalStore";
 import axios from "axios";
+import { URL, KEY } from "config/apiUrls";
 import { makeAutoObservable } from "mobx";
+import { AllRecipes } from "store/models/allRecipes";
+import rootStore from "store/RootStore/instance";
+import { ILocalStore } from "utils/useLocalStore";
 
 class AllRecipesStore implements ILocalStore {
   private _allRecipesList: AllRecipes[] = [];

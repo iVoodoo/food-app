@@ -1,4 +1,4 @@
-import { TypeOption } from "@components/multidropdown/MultiDropdown";
+import { TypeOption } from "components/multidropdown/MultiDropdown";
 
 export const MultiDropDownOptions: TypeOption[] = [
   { key: "main course", value: "Main course" },

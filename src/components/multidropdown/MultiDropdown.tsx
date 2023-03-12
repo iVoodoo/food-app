@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import { MultiDropDownOptions } from "@data/MultiDropDownOptions";
-import allRecipesStore from "@store/AllRecipesStore/AllRecipesStore";
-import rootStore from "@store/RootStore/instance";
 import cn from "clsx";
+import { MultiDropDownOptions } from "data/MultiDropDownOptions";
 import { observer } from "mobx-react-lite";
+import allRecipesStore from "store/AllRecipesStore/AllRecipesStore";
+import rootStore from "store/RootStore/instance";
 
 import styles from "./MultiDropdown.module.scss";
 import Option from "./option";

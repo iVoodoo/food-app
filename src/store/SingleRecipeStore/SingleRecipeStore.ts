@@ -1,8 +1,8 @@
-import { URL, KEY } from "@config/apiUrls";
-import { SingleRecipe } from "@store/models/singleRecipe";
-import { ILocalStore } from "@utils/useLocalStore";
 import axios from "axios";
+import { URL, KEY } from "config/apiUrls";
 import { makeAutoObservable, runInAction } from "mobx";
+import { SingleRecipe } from "store/models/singleRecipe";
+import { ILocalStore } from "utils/useLocalStore";
 
 class SingleRecipeStore implements ILocalStore {
   private _singleRecipe: SingleRecipe | null = null;

@@ -1,14 +1,14 @@
 import { FormEvent } from "react";
 
-import searchIcon from "@assets/images/search-icon.svg";
-import Input from "@components/input";
-import Multidropdown from "@components/multidropdown";
-import { TypeOption } from "@components/multidropdown/MultiDropdown";
-import allRecipesStore from "@store/AllRecipesStore";
-import rootStore from "@store/RootStore/instance";
-import { useLocalStore } from "@utils/useLocalStore";
+import searchIcon from "assets/images/search-icon.svg";
+import Input from "components/input";
+import Multidropdown from "components/multidropdown";
+import { TypeOption } from "components/multidropdown/MultiDropdown";
 import { observer } from "mobx-react-lite";
 import { useSearchParams } from "react-router-dom";
+import allRecipesStore from "store/AllRecipesStore";
+import rootStore from "store/RootStore/instance";
+import { useLocalStore } from "utils/useLocalStore";
 
 import styles from "./Search.module.scss";
 

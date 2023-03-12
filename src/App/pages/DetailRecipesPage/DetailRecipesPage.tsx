@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 
-import backArrow from "@assets/images/backArrow.svg";
-import likeImg from "@assets/images/like.svg";
-import timerImg from "@assets/images/timer.svg";
-import Loader from "@components/loader";
-import singleRecipeStore from "@store/SingleRecipeStore";
-import { useLocalStore } from "@utils/useLocalStore";
+import backArrow from "assets/images/backArrow.svg";
+import likeImg from "assets/images/like.svg";
+import timerImg from "assets/images/timer.svg";
+import Loader from "components/loader";
 import { observer } from "mobx-react-lite";
 import { useNavigate, useParams } from "react-router-dom";
+import singleRecipeStore from "store/SingleRecipeStore";
+import { useLocalStore } from "utils/useLocalStore";
 
 import styles from "./DetailRecipesPage.module.scss";
 

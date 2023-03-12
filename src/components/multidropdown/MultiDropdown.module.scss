@@ -1,4 +1,4 @@
-@import "@styles/variables";
+@import "styles/variables";
 
 .multi-dropdown {
   display: flex;
@@ -19,6 +19,7 @@
     border: none;
     outline: none;
     border-radius: 7px;
+    cursor: pointer;
 
     &_disabled {
       color: rgba($grey-text, 0.5);
@@ -33,25 +34,5 @@
     border-radius: 7px;
     overflow: hidden;
     z-index: 10;
-
-    .item {
-      display: block;
-      width: 100%;
-      padding: 10px 0;
-      padding-left: 10px;
-
-      font-family: $avenir-font;
-      font-size: 12px;
-      font-weight: 400;
-      color: $black;
-      text-align: left;
-      border: none;
-
-      background: $white;
-
-      &_selected {
-        background-color: $white-red;
-      }
-    }
   }
 }
