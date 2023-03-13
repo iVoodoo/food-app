@@ -1,7 +1,10 @@
-@import "@styles/variables";
+@import "styles/variables";
 
 .item {
+  cursor: pointer;
+
   display: block;
+
   width: 100%;
   padding: 10px 0;
   padding-left: 10px;
@@ -11,9 +14,10 @@
   font-weight: 400;
   color: $black;
   text-align: left;
+
+  background: $white;
   border: none;
   outline: none;
-  background: $white;
 
   &_selected {
     background-color: $white-red;
