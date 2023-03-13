@@ -11,7 +11,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 const getSettingsForStyles = (withModules = false) => {
   return [
-    MiniCssExtractPlugin.loader,
+    isProd ? MiniCssExtractPlugin.loader : "style-loader",
     !withModules
       ? "css-loader"
       : {
@@ -42,16 +42,17 @@ module.exports = {
   devtool: isProd ? "hidden-source-map" : "eval-source-map",
   output: {
     path: buildPath,
-    filename: "bundle.js"
+    filename: "bundle-[hash].js"
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(srcPath, "index.html")
     }),
     !isProd && new ReactRefreshWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "[name]-[hash].css"
-    }),
+    isProd &&
+      new MiniCssExtractPlugin({
+        filename: "[name]-[hash].css"
+      }),
     new TsCheckerPlugin()
   ].filter(Boolean),
   module: {
