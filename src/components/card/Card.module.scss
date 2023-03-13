@@ -2,10 +2,10 @@
 
 .card {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   flex-grow: 1;
   gap: 1;
+  justify-content: space-between;
 
   width: 155px;
   padding: 8px 12px;
@@ -38,12 +38,9 @@
 
   &__ingredients {
     overflow: hidden;
-    text-overflow: ellipsis;
     display: -webkit-box;
-    max-height: 32px;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
 
+    max-height: 32px;
     margin-top: 4px;
 
     font-family: $avenir-font;
@@ -55,13 +52,16 @@
     letter-spacing: -0.03em;
 
     opacity: 0.5;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
 
   &__content {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
     .kcal {
       font-family: $dm-sans-font;

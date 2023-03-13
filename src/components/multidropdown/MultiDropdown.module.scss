@@ -1,11 +1,13 @@
 @import "styles/variables";
 
 .multi-dropdown {
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
 
   &__button {
+    cursor: pointer;
+
     margin-bottom: 3px;
     padding: 10px 0;
     padding-left: 10px;
@@ -17,9 +19,8 @@
 
     background: $light-red-gradient;
     border: none;
-    outline: none;
     border-radius: 7px;
-    cursor: pointer;
+    outline: none;
 
     &_disabled {
       color: rgba($grey-text, 0.5);
@@ -29,10 +30,13 @@
 
   &__items {
     position: absolute;
-    width: 100%;
-    top: 100%;
-    border-radius: 7px;
-    overflow: hidden;
     z-index: 10;
+    top: 100%;
+
+    overflow: hidden;
+
+    width: 100%;
+
+    border-radius: 7px;
   }
 }
