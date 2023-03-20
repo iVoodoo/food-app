@@ -1,28 +1,39 @@
-import { FormEvent, useState } from "react";
+import { FormEvent } from "react";
 
-import searchIcon from "@assets/images/search-icon.svg";
-import Input from "@components/input";
-import Multidropdown from "@components/multidropdown";
-import { TypeOption } from "@components/multidropdown/MultiDropdown";
-import AllRecipesStore from "@store/AllRecipesStore";
-import rootStore from "@store/RootStore/instance";
+import searchIcon from "assets/images/search-icon.svg";
+import Input from "components/input";
+import Multidropdown from "components/multidropdown";
+import { TypeOption } from "components/multidropdown/MultiDropdown";
+import { observer } from "mobx-react-lite";
 import { useSearchParams } from "react-router-dom";
+import allRecipesStore from "store/AllRecipesStore";
+import rootStore from "store/RootStore/instance";
+import { useLocalStore } from "utils/useLocalStore";
 
 import styles from "./Search.module.scss";
 
 const Search = () => {
-  const [value, setValue] = useState<TypeOption[]>([]);
   const [searchParams, setSearchParams] = useSearchParams("");
+  useLocalStore(() => allRecipesStore);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setSearchParams({ query: rootStore.query.getSearch });
-    AllRecipesStore.getAllRecipesList();
+    setSearchParams({
+      search: rootStore.query.getSearch,
+      type: searchParams.get("type") || ""
+    });
+    allRecipesStore.getAllRecipesList();
   };
 
   const handleChange = (value: string) => {
-    setSearchParams({ query: "" });
     rootStore.query.setSearch(value);
+  };
+
+  const onChangeType = (type: TypeOption) => {
+    setSearchParams({
+      search: searchParams.get("search") || "",
+      type: rootStore.query.getTypeForRequest
+    });
   };
 
   return (
@@ -38,15 +49,17 @@ const Search = () => {
       </form>
       <div className={styles["multi-dropdown-wrapper"]}>
         <Multidropdown
-          value={value}
-          onChange={(item: TypeOption[]) => setValue(item)}
+          value={rootStore.query.getType}
+          onChange={onChangeType}
         />
       </div>
-      {searchParams.get("query") !== "" && (
-        <p className={styles.result}>Result For: {searchParams.get("query")}</p>
+      {searchParams.get("search") && (
+        <p className={styles.result}>
+          Result For: {searchParams.get("search")}
+        </p>
       )}
     </>
   );
 };
 
-export default Search;
+export default observer(Search);

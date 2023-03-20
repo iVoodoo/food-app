@@ -11,21 +11,12 @@ export enum LoaderSize {
 }
 
 export type LoaderProps = {
-  loading?: boolean;
   size?: LoaderSize;
   className?: string;
 };
 
-const Loader: React.FC<LoaderProps> = ({
-  loading = true,
-  size = "m",
-  className
-}) => {
-  return loading ? (
-    <div className={cn(styles.loader, styles[`${size}-size`])}></div>
-  ) : (
-    <></>
-  );
-};
+const Loader: React.FC<LoaderProps> = ({ size = "m", className }) => (
+  <span className={cn(styles.loader, styles[`loader_size_${size}`])}></span>
+);
 
 export default Loader;

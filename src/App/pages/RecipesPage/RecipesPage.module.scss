@@ -1,4 +1,4 @@
-@import "@styles/variables";
+@import "styles/variables";
 
 .wrapper {
   display: flex;
@@ -16,15 +16,15 @@
 
     opacity: 0.1;
   }
+}
 
-  .header {
-    margin: 24px 32px 0;
-  }
+.header {
+  margin: 24px 32px 0;
+}
 
-  .cardWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 33px 17px;
-    margin: 20px 24px;
-  }
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 33px 17px;
+  margin: 20px 24px;
 }

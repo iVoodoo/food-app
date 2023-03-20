@@ -1,19 +1,22 @@
 import { useEffect } from "react";
 
-import background from "@assets/images/background.svg";
-import Card from "@components/card";
-import Loader from "@components/loader";
-import AllRecipesStore from "@store/AllRecipesStore";
+import background from "assets/images/background.svg";
+import Card from "components/card";
+import Loader from "components/loader";
 import { observer } from "mobx-react-lite";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Link } from "react-router-dom";
+import allRecipesStore from "store/AllRecipesStore";
+import { useLocalStore } from "utils/useLocalStore";
 
 import styles from "./RecipesPage.module.scss";
 import Search from "./search";
 
 const RecipesPage = () => {
+  useLocalStore(() => allRecipesStore);
+
   useEffect(() => {
-    AllRecipesStore.getAllRecipesList();
+    allRecipesStore.getAllRecipesList();
   }, []);
 
   return (
@@ -23,15 +26,15 @@ const RecipesPage = () => {
         <Search />
       </div>
       <InfiniteScroll
-        dataLength={AllRecipesStore.allRecipesList.length}
+        dataLength={allRecipesStore.allRecipesList.length}
         next={() => {
-          AllRecipesStore.moreRecipes();
+          allRecipesStore.moreRecipes();
         }}
         hasMore={true}
         loader={<Loader />}
       >
-        <section className={styles.cardWrapper}>
-          {AllRecipesStore.allRecipesList.map(item => (
+        <section className={styles["card-wrapper"]}>
+          {allRecipesStore.allRecipesList.map(item => (
             <Link
               style={{ textDecoration: "none", display: "flex", flexGrow: "1" }}
               key={item.id}

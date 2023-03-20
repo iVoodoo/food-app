@@ -1,4 +1,4 @@
-@import "@styles/variables";
+@import "styles/variables";
 
 .search {
   display: flex;
@@ -6,26 +6,29 @@
   justify-content: space-between;
 
   &__icon {
-    border: 0;
-    outline: none;
     cursor: pointer;
 
     position: relative;
+
     width: 36px;
     height: 36px;
     margin-left: 8px;
 
     background: $red;
+    border: 0;
     border-radius: 7px;
+    outline: none;
   }
 
   img {
     content: "";
+
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+
     margin: auto;
   }
 }
