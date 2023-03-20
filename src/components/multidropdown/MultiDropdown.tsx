@@ -68,8 +68,8 @@ const MultiDropdown: React.FC<MultiDropdownProps> = ({
                   value.findIndex(element => element.key === item.key) !== -1
                 }
                 onClick={() => {
-                  onChange(item);
                   rootStore.query.setType(item);
+                  onChange(item);
                   allRecipesStore.getAllRecipesList();
                 }}
               />

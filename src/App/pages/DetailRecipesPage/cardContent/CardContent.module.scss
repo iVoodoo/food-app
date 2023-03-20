@@ -1,0 +1,72 @@
+@import "styles/variables";
+
+.card {
+  position: relative;
+  z-index: 2;
+
+  min-width: 375px;
+  margin-top: -15px;
+  padding: 68px 33px;
+
+  background-color: $white;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+
+  &__title {
+    width: 60%;
+
+    font-family: $avenir-font;
+    font-size: 27;
+    font-weight: 500;
+    line-height: 38px;
+    color: $black;
+    text-align: left;
+  }
+
+  &__stats {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    &__timer {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+
+      &__timer-text {
+        margin-left: 15px;
+
+        font-family: $avenir-font;
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba($grey-text, 0.4);
+      }
+    }
+
+    &__likes {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-right: auto;
+      margin-left: 30px;
+
+      &__likes-text {
+        margin-left: 15px;
+
+        font-family: $avenir-font;
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba($grey-text, 0.4);
+      }
+    }
+  }
+  &__recipe-instruction {
+    margin-top: 25px;
+    font-family: $avenir-font;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}

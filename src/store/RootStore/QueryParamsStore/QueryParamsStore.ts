@@ -12,7 +12,8 @@ export default class QueryParamsStore {
   constructor() {
     makeObservable<QueryParamsStore, PrivateFields>(this, {
       _params: observable,
-      setSearch: action
+      setSearch: action,
+      setType: action
     });
   }
 
@@ -25,6 +26,7 @@ export default class QueryParamsStore {
   }
 
   get getTypeForRequest(): string {
+    debugger;
     let requestTypes: string[];
     requestTypes = this._params.type.map(element => element.value);
     return requestTypes.join(" + ");

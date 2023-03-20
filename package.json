@@ -2,6 +2,7 @@
 	"name": "food-app",
 	"version": "0.1.0",
 	"private": true,
+	"homepage": "https://iVoodoo.github.io/food-app",
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.14.1",
 		"@testing-library/react": "^13.0.0",
@@ -25,11 +26,13 @@
 		"web-vitals": "^2.1.0"
 	},
 	"scripts": {
-		"build": "NODE_ENV=production npx webpack --mod=production",
 		"dev": "cross-env NODE_ENV=development npx webpack serve --mode=development",
+		"build": "NODE_ENV=production npx webpack --mod=production",
+  	"predeploy": "yarn build",
+  	"deploy": "gh-pages -d build",
 		"lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
 		"lint:fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix",
-		"lint:css": "stylelint src",
+		"lint:css": "stylelint \"**/*.scss\"",
 		"lint:css:fix": "yarn lint:css -- --fix",
 		"ts-check": "tsc --skipLibCheck --noEmit --project tsconfig.json"
 	},
@@ -72,6 +75,7 @@
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-react": "^7.32.2",
 		"fork-ts-checker-webpack-plugin": "^8.0.0",
+		"gh-pages": "^5.0.0",
 		"html-webpack-plugin": "^5.5.0",
 		"mini-css-extract-plugin": "^2.7.3",
 		"postcss-loader": "^7.0.2",

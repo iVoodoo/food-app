@@ -33,7 +33,7 @@ const RecipesPage = () => {
         hasMore={true}
         loader={<Loader />}
       >
-        <section className={styles.cardWrapper}>
+        <section className={styles["card-wrapper"]}>
           {allRecipesStore.allRecipesList.map(item => (
             <Link
               style={{ textDecoration: "none", display: "flex", flexGrow: "1" }}

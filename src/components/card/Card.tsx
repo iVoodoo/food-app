@@ -29,7 +29,7 @@ const Card: React.FC<CardProps> = ({
       <h1 className={styles.card__title}>{title}</h1>
       <p className={styles.card__ingredients}>{ingredients}</p>
       <div className={styles.card__content}>
-        <div className={styles.kcal}>{kcal} kcal</div>
+        <div className={styles["card__content__content-kcal"]}>{kcal} kcal</div>
         <img className={styles.button} src={plusButton} alt="plus"></img>
       </div>
     </div>

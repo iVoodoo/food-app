@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 
 import backArrow from "assets/images/backArrow.svg";
-import likeImg from "assets/images/like.svg";
-import timerImg from "assets/images/timer.svg";
 import Loader from "components/loader";
 import { observer } from "mobx-react-lite";
 import { useNavigate, useParams } from "react-router-dom";
 import singleRecipeStore from "store/SingleRecipeStore";
 import { useLocalStore } from "utils/useLocalStore";
 
+import CardContent from "./cardContent";
 import styles from "./DetailRecipesPage.module.scss";
 
 const DetailRecipesPage = () => {
@@ -24,11 +23,11 @@ const DetailRecipesPage = () => {
   return (
     <div className={styles.wrapper}>
       {recipe ? (
-        <>
-          <div className={styles.image}>
+        <div className={styles.card}>
+          <div className={styles.card__background}>
             <img src={recipe?.image} alt="food" />
             <span
-              className={styles.backArrow}
+              className={styles["card__background__background-backArrow"]}
               onClick={() => {
                 navigate(-1);
               }}
@@ -36,30 +35,13 @@ const DetailRecipesPage = () => {
               <img src={backArrow} alt="backArrow-icon" />
             </span>
           </div>
-          <div className={styles.description}>
-            <div className={styles.content}>
-              <h1 className={styles.title}>{recipe?.title}</h1>
-              <div className={styles.stats}>
-                <div className={styles.timer}>
-                  <span className={styles.logo}>
-                    <img src={timerImg} alt="timer logo" />
-                  </span>
-                  <p className={styles.text}>{recipe?.times} minutes</p>
-                </div>
-                <div className={styles.likes}>
-                  <span className={styles.logo}>
-                    <img src={likeImg} alt="like logo" />
-                  </span>
-                  <p className={styles.text}>{recipe?.likes} Rating</p>
-                </div>
-              </div>
-              <article
-                className={styles.recipeInfo}
-                dangerouslySetInnerHTML={{ __html: `${recipe?.instructions}` }}
-              ></article>
-            </div>
-          </div>
-        </>
+          <CardContent
+            title={recipe?.title}
+            instructions={recipe?.instructions}
+            likes={recipe?.likes}
+            times={recipe?.times}
+          />
+        </div>
       ) : (
         <Loader />
       )}
